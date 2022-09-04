@@ -96,7 +96,7 @@ class App extends Component {
         <ImageGallery onClick={openModal} items={items} />
 
         {modalOpen && (
-          <Modal omClose={closeModal}>
+          <Modal onClose={closeModal}>
             <img src={modalContent.src} alt="img"></img>
           </Modal>
         )}

@@ -42,21 +42,13 @@ class Searchbar extends Component {
     const { handleChange, handleSubmit } = this;
 
     return (
-      <>
-        {/* <header className="searchbar"> */}
-        <form className="searchForm" onSubmit={handleSubmit}>
-          <button type="submit" className="searchForm-button">
-            Search Images
-          </button>
+      <form className="searchForm" onSubmit={handleSubmit}>
+        <button type="submit" className="searchForm-button">
+          Search Images
+        </button>
 
-          <TextField
-            value={search}
-            onChange={handleChange}
-            {...fields.search}
-          />
-        </form>
-        {/* </header> */}
-      </>
+        <TextField value={search} onChange={handleChange} {...fields.search} />
+      </form>
     );
   }
 }
