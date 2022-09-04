@@ -29,6 +29,8 @@ class Searchbar extends Component {
       alert('Введите другой запрос');
       this.reset();
     }
+    this.props.onSubmit(this.state.value);
+    this.reset();
   };
 
   reset() {
@@ -44,7 +46,7 @@ class Searchbar extends Component {
         {/* <header className="searchbar"> */}
         <form className="searchForm" onSubmit={handleSubmit}>
           <button type="submit" className="searchForm-button">
-            <span className="searchForm-button-label">Search</span>
+            Search Images
           </button>
 
           <TextField

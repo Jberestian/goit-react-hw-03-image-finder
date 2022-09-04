@@ -7,18 +7,21 @@ const ImageGallery = ({ items, onClick }) => {
   const elements = items.map(({ id, webformatURL, largeImageURL }) => (
     <ImageGalleryItem
       onClick={onClick}
-      key={nanoid}
+      key={nanoid()}
       id={id}
       src={webformatURL}
       largeImageURL={largeImageURL}
     />
   ));
+
   return (
     <>
       <ul className="imageGallery">{elements}</ul>
     </>
   );
 };
+
+export default ImageGallery;
 
 ImageGallery.propTypes = {
   items: arrayOf(
@@ -30,5 +33,3 @@ ImageGallery.propTypes = {
   ),
   onClick: PropTypes.func.isRequired,
 };
-
-export default ImageGallery;

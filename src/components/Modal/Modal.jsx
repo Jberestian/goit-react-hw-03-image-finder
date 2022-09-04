@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -29,11 +29,11 @@ class Modal extends Component {
 
   render() {
     const { closeModal } = this;
-    const { childern } = this.props;
+    const { children } = this.props;
 
     return createPortal(
       <div className="overlay" onClick={closeModal}>
-        <div className="modal">{childern}</div>
+        <div className="modal">{children}</div>
       </div>,
       modalRoot
     );

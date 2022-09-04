@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 const ImageGalleryItem = ({ id, src, largeImageURL, onClick }) => {
   return (
     <li className="imageGalleryItem" onClick={() => onClick(largeImageURL)}>
-      <img src={src} alt="imageName" className="imageGalleryItem" id={id} />
+      <img className="imageGalleryItem-image" src={src} alt="imgName" id={id} />
     </li>
   );
 };
+
+export default ImageGalleryItem;
 
 ImageGalleryItem.propTypes = {
   id: PropTypes.number.isRequired,
@@ -14,5 +16,3 @@ ImageGalleryItem.propTypes = {
   largeImageURL: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
-
-export default ImageGalleryItem;
