@@ -1,14 +1,15 @@
-import { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Button extends Component {
-  state = {};
-  render() {
-    return (
-      <>
-        <button>Load More</button>
-      </>
-    );
-  }
-}
+const Button = ({ onClick }) => {
+  return (
+    <button className="loadMore" type="button" onClick={onClick}>
+      <span>Load More</span>
+    </button>
+  );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Button;

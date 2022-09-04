@@ -1,14 +1,34 @@
-import { Component } from 'react';
+import PropTypes, { arrayOf } from 'prop-types';
+import { nanoid } from 'nanoid';
 
-class ImageGallery extends Component {
-  state = {};
-  render() {
-    return (
-      <>
-        <ul className="gallery"></ul>
-      </>
-    );
-  }
-}
+import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+
+const ImageGallery = ({ items, onClick }) => {
+  const elements = items.map(({ id, webformatURL, largeImageURL }) => (
+    <ImageGalleryItem
+      onClick={onClick}
+      key={nanoid}
+      id={id}
+      src={webformatURL}
+      largeImageURL={largeImageURL}
+    />
+  ));
+  return (
+    <>
+      <ul className="imageGallery">{elements}</ul>
+    </>
+  );
+};
+
+ImageGallery.propTypes = {
+  items: arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+    })
+  ),
+  onClick: PropTypes.func.isRequired,
+};
 
 export default ImageGallery;
